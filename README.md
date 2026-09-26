@@ -1,86 +1,61 @@
-# 🦷 ربات BioX — پلتفرم فروش و مدیریت (شرکت تجهیزات دندان‌پزشکی)
+<div align="center">
 
-ربات پیام‌رسان **بله** برای فروش محصولات دندان‌پزشکی، مدیریت سفارش، انبار و کارکنان.
+# 🦷 BioX: Sales & Operations Bot for a Dental Products Company (Bale)
 
-**تکنولوژی:** Python · python-bale-bot · SQLite · openpyxl (خروجی اکسل)
+**A multi-role business bot on the [Bale](https://bale.ai) messenger** that runs a dental supply company's sales, orders, warehouse, staff reporting and customer support in one place.
 
-## ✅ قابلیت‌های پیاده‌سازی‌شده
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)
+![Bale](https://img.shields.io/badge/Bale-python--bale--bot-00A884)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white)
+![Excel](https://img.shields.io/badge/Excel-export-217346?logo=microsoftexcel&logoColor=white)
 
-### 👤 پنل کاربر
-- ثبت‌نام با نام، شماره و نقش
-- عضویت اجباری در کانال (قابل تنظیم)
-- ثبت سفارش با انتخاب محصول / سایز / تعداد
-- دریافت اطلاعات هویتی کامل قبل از پرداخت
-- پرداخت کارت‌به‌کارت + آپلود فیش
-- مشاهده سفارش‌ها، وضعیت و کد رهگیری
-- اخبار و اطلاعیه‌ها
-- کاتالوگ و اطلاعات (PDF، لینک، ویدیو)
-- سیستم تیکت (متن، تصویر، ویس)
-
-### 🏭 پنل انباردار
-- مشاهده سفارش‌های آماده ارسال
-- مدیریت موجودی انبار
-- ثبت کد رهگیری پستی → ارسال خودکار به مشتری
-
-### 👔 پنل کارکنان
-- ثبت گزارش روزانه (متن، تصویر، فایل)
-- مشاهده گزارش‌های قبلی
-
-### 🔧 پنل ادمین
-- تایید / رد فیش پرداخت
-- مدیریت کاربران و مسدود/رفع‌مسدودی
-- مدیریت محصولات (قیمت، موجودی، فعال/غیرفعال، افزودن)
-- سیستم تخفیف برای هر نقش (درصد یا مبلغ ثابت)
-- مدیریت کارکنان و نقش‌ها
-- مشاهده گزارش کارکنان
-- مدیریت تیکت‌ها و پاسخ مستقیم
-- اطلاعیه جدید
-- پیام همگانی
-- مدیریت کاتالوگ
-- تنظیمات کامل ربات
+</div>
 
 ---
 
-## 🚀 نصب سریع
+## ✨ Features
 
+### 👤 Customer panel
+- Registration with name, phone and **role** (dentist, clinic, student...). Each role can have its own discounts.
+- Mandatory channel membership (configurable).
+- **Ordering:** choose product, size and quantity, then enter full invoice or shipping details before payment.
+- **Card-to-card payment** with receipt upload.
+- Order history with status and **postal tracking code**.
+- News and announcements, a **catalog** (PDF, links, videos) and a **ticket system** (text, image, voice).
+
+### 🏭 Warehouse panel
+- Orders ready to ship and **inventory management**.
+- Entering a postal tracking code **automatically notifies the customer**.
+
+### 👔 Staff panel
+- **Daily reports** (text, image, file) and report history.
+
+### 🔧 Admin panel
+- Receipt approval and rejection.
+- User management (block/unblock), products (price, stock, active, add new).
+- **Role-based discounts** (percentage or fixed amount).
+- Staff and role management, and reviewing staff reports.
+- Ticket inbox with direct replies, announcements and broadcasts.
+- Catalog management, full bot settings, and **Excel export** of data.
+
+## 🧰 Tech Stack
+Python · python-bale-bot · SQLite · openpyxl · jdatetime
+
+## 🚀 Getting Started
 ```bash
 pip install -r requirements.txt
-cp .env.example .env
-```
-
-## ⚙️ تنظیم اولیه
-
-فایل `.env.example` را به `.env` کپی و مقادیر را وارد کنید:
-
-```ini
-BOT_TOKEN=توکن_ربات_شما
-SUPER_ADMIN_IDS=آیدی_عددی_بله_شما
-```
-
-## ▶️ اجرا
-
-```bash
+cp .env.example .env    # BOT_TOKEN and SUPER_ADMIN_IDS
 python bot.py
+```
+The database is created **empty on first run**.
+
+## 📁 Project Structure
+```
+bot.py               # entry point and routing
+database/db.py       # data layer
+handlers/            # start, account, order, info, membership, staff, admin/panel
+utils/               # keyboards, Jalali dates, Excel export
 ```
 
 ---
-
-## 📁 ساختار پروژه
-
-```
-biox_bot/
-├── bot.py                  # فایل اصلی
-├── requirements.txt
-├── database/
-│   └── db.py               # دیتابیس SQLite
-├── handlers/
-│   ├── start.py            # ثبت‌نام و منوی اصلی
-│   ├── order.py            # ثبت سفارش
-│   ├── account.py          # حساب کاربری
-│   ├── info.py             # اخبار، کاتالوگ، تیکت
-│   ├── staff.py            # کارکنان + انبار
-│   └── admin/
-│       └── panel.py        # پنل ادمین
-└── utils/
-    └── keyboards.py        # کیبوردها
-```
+<div align="center">Built by <a href="https://github.com/mohagheghm511">@mohagheghm511</a></div>
